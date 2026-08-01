@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  Bell,
-  LifeBuoy,
-  LogOut,
-  Moon,
-  Search,
-  Settings,
-  Sun,
-  User,
-} from "lucide-react";
+  IconBell,
+  IconLifebuoy,
+  IconLogout,
+  IconMoon,
+  IconSearch,
+  IconSettings,
+  IconSun,
+  IconUser,
+} from "@tabler/icons-react";
 import type { User as AuthUser } from "@/types";
-import type { RouteMeta } from "@/config/navigation";
+import { SHELL_FONT_SIZE, type RouteMeta } from "@/config/navigation";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -102,7 +102,7 @@ export function AppHeader({
       <Separator orientation="vertical" className="h-4" />
 
       <Breadcrumb className="hidden min-w-0 md:block">
-        <BreadcrumbList className="flex-nowrap">
+        <BreadcrumbList className={`flex-nowrap ${SHELL_FONT_SIZE}`}>
           <BreadcrumbItem>
             <BreadcrumbLink asChild className="text-primary hover:text-primary/80">
               <Link to="/dashboard">{currentRoute.section}</Link>
@@ -121,7 +121,7 @@ export function AppHeader({
           className="hidden h-8 min-w-40 justify-start rounded-md bg-background text-xs font-normal text-muted-foreground shadow-none md:flex xl:min-w-52"
           onClick={() => setCommandOpen(true)}
         >
-          <Search data-icon="inline-start" />
+          <IconSearch data-icon="inline-start" />
           <span>搜索页面</span>
           <span className="ml-auto rounded border bg-muted px-1.5 py-0.5 text-[11px]">⌘ K</span>
         </Button>
@@ -135,7 +135,7 @@ export function AppHeader({
               onClick={() => setCommandOpen(true)}
               aria-label="搜索页面"
             >
-              <Search />
+              <IconSearch />
             </Button>
           </TooltipTrigger>
           <TooltipContent>搜索页面</TooltipContent>
@@ -150,7 +150,7 @@ export function AppHeader({
               onClick={handleThemeToggle}
               aria-label={preferences.darkMode ? "切换到浅色主题" : "切换到深色主题"}
             >
-              {preferences.darkMode ? <Sun /> : <Moon />}
+              {preferences.darkMode ? <IconSun /> : <IconMoon />}
             </Button>
           </TooltipTrigger>
           <TooltipContent>{preferences.darkMode ? "浅色主题" : "深色主题"}</TooltipContent>
@@ -159,7 +159,7 @@ export function AppHeader({
         <Tooltip>
           <TooltipTrigger asChild>
             <Button variant="ghost" size="icon" className="relative size-8" aria-label="通知">
-              <Bell />
+              <IconBell />
               <Badge className="absolute right-0 top-0 size-4 justify-center rounded-full p-0 text-[10px]">
                 3
               </Badge>
@@ -188,22 +188,22 @@ export function AppHeader({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <User />
+                <IconUser />
                 <span>个人资料</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Settings />
+                <IconSettings />
                 <span>系统设置</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <LifeBuoy />
+                <IconLifebuoy />
                 <span>帮助中心</span>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem onClick={onLogout}>
-                <LogOut />
+                <IconLogout />
                 <span>退出登录</span>
               </DropdownMenuItem>
             </DropdownMenuGroup>

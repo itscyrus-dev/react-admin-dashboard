@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
-import type { LucideIcon } from "lucide-react";
-import { Clock3, CreditCard, Download, Eye, Users } from "lucide-react";
+import type { Icon } from "@tabler/icons-react";
+import {
+  IconClock,
+  IconCreditCard,
+  IconDownload,
+  IconEye,
+  IconUsers,
+} from "@tabler/icons-react";
 import {
   Area,
   AreaChart,
@@ -41,7 +47,7 @@ interface Metric {
   value: string;
   totalLabel: string;
   totalValue: string;
-  icon: LucideIcon;
+  icon: Icon;
 }
 
 interface TrafficPoint {
@@ -56,28 +62,28 @@ const metrics: Metric[] = [
     value: "2,000",
     totalLabel: "总用户量",
     totalValue: "120,000",
-    icon: Users,
+    icon: IconUsers,
   },
   {
     title: "访问量",
     value: "20,000",
     totalLabel: "总访问量",
     totalValue: "500,000",
-    icon: Eye,
+    icon: IconEye,
   },
   {
     title: "下载量",
     value: "8,000",
     totalLabel: "总下载量",
     totalValue: "120,000",
-    icon: Download,
+    icon: IconDownload,
   },
   {
     title: "使用量",
     value: "5,000",
     totalLabel: "总使用量",
     totalValue: "50,000",
-    icon: Clock3,
+    icon: IconClock,
   },
 ];
 
@@ -427,7 +433,7 @@ export function DashboardPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex items-center gap-3 text-sm text-muted-foreground">
-          <CreditCard className="size-5" />
+          <IconCreditCard className="size-5" />
           <span>所需权限：GET /dashboard</span>
         </CardContent>
       </Card>

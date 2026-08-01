@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { MoreHorizontal, RefreshCw, X } from "lucide-react";
+import { IconDots, IconRefresh, IconX } from "@tabler/icons-react";
 import type { RouteMeta } from "@/config/navigation";
 import { getRouteMeta } from "@/config/navigation";
 import { Button } from "@/components/ui/button";
@@ -86,7 +86,7 @@ export function RouteTabs({ availableRoutes }: RouteTabsProps) {
                   onClick={() => handleClose(tab.path)}
                   aria-label={`关闭${tab.title}`}
                 >
-                  <X />
+                  <IconX />
                 </Button>
               ) : null}
             </div>
@@ -102,12 +102,12 @@ export function RouteTabs({ availableRoutes }: RouteTabsProps) {
           onClick={() => window.location.reload()}
           aria-label="刷新当前页面"
         >
-          <RefreshCw />
+          <IconRefresh />
         </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="size-7" aria-label="页签操作">
-              <MoreHorizontal />
+              <IconDots />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

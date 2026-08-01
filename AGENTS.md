@@ -253,7 +253,7 @@ src/
 - 不对 `Dialog`、`Sheet`、`DropdownMenu`、`Popover`、`Tooltip` 等覆盖层手写任意 `z-index`。
 - `Dialog`、`Sheet`、`Drawer` 必须包含可访问的 Title，可使用 `sr-only` 隐藏视觉标题。
 - `Avatar` 必须包含 `AvatarFallback`；`TabsTrigger` 必须放在 `TabsList` 内。
-- 图标统一使用项目已配置的 `lucide-react`，图标对象直接传给组件，不使用字符串查表。
+- 图标统一使用项目已配置的 `@tabler/icons-react`，图标组件以 `Icon` 前缀命名（如 `IconSearch`），类型使用导出的 `Icon` 类型；图标对象直接传给组件，不使用字符串查表。
 - 位于 `Button`、`DropdownMenuItem`、`Sidebar` 等 shadcn 组件内部的图标不额外写尺寸类；按钮图标使用 `data-icon="inline-start"` 或 `data-icon="inline-end"`。
 - `src/components/ui` 由 shadcn CLI 管理；定制优先通过主题变量、组件变体或外层包装组件完成。
 
@@ -268,6 +268,8 @@ src/
 - 主趋势图颜色与全局强调色协调；多系列图表使用稳定的图表 token，不为每张图随意创造新配色。
 - 图标承担识别和状态提示，不使用 Emoji 代替界面图标。
 - 动画仅用于侧栏折叠、菜单展开、页签切换和加载反馈，优先使用简短的 `transform`/`opacity` 过渡并尊重 `prefers-reduced-motion`。
+- 全局动画统一使用 **Motion**（`motion/react`，即 framer-motion 的后继包）。页面切换/打开使用 `AnimatePresence mode="wait"` + `motion.div`（按路由 key 切换）做淡入/位移过渡；侧栏分组展开/折叠使用 `AnimatePresence` + `motion.div` 的 `height: 0 → auto` 高度动画，并在展开态由 `overflow-hidden` 裁剪。单次动画时长统一 `200ms`、缓动 `easeOut`，不要在各处硬编码不同的动画实现。
+- 在 `src/App.tsx` 用 `<MotionConfig reducedMotion="user">` 包裹应用，让 Motion 自动尊重 `prefers-reduced-motion`。
 
 ### 响应式规则
 
@@ -451,7 +453,7 @@ pnpm <script>
 
 - **shadcn/ui 组件**: 位于 `components/ui` 的代码由 CLI 生成，如需定制请通过 `components.json` 配置或创建包装组件，避免直接修改源文件。
 - **路径别名**: 建议使用 `@/` 指向 `src/` 目录，在 `vite.config.ts` 与 `tsconfig.json` 中同步配置。
-- **图标**: 推荐使用 `lucide-react`（shadcn/ui 默认图标库）。
+- **图标**: 使用 `@tabler/icons-react`，图标组件以 `Icon` 前缀命名（如 `IconSearch`），类型使用导出的 `Icon` 类型。
 
 ---
 

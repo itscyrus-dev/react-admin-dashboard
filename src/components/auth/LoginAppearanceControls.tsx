@@ -1,13 +1,13 @@
 import {
-  AlignCenter,
-  AlignLeft,
-  AlignRight,
-  Languages,
-  Moon,
-  Palette,
-  PanelsTopLeft,
-  Sun,
-} from "lucide-react";
+  IconAlignCenter,
+  IconAlignLeft,
+  IconAlignRight,
+  IconLanguage,
+  IconLayoutNavbar,
+  IconMoon,
+  IconPalette,
+  IconSun,
+} from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -47,9 +47,9 @@ interface LoginAppearanceControlsProps {
 }
 
 const POSITION_OPTIONS = [
-  { value: "left", icon: AlignLeft },
-  { value: "center", icon: AlignCenter },
-  { value: "right", icon: AlignRight },
+  { value: "left", icon: IconAlignLeft },
+  { value: "center", icon: IconAlignCenter },
+  { value: "right", icon: IconAlignRight },
 ] as const;
 
 const LANGUAGE_OPTIONS = ["zh-CN", "en-US"] as const;
@@ -60,7 +60,7 @@ export function LoginAppearanceControls({
   copy,
   onPreferenceChange,
 }: LoginAppearanceControlsProps) {
-  const ThemeModeIcon = preferences.darkMode ? Sun : Moon;
+  const ThemeModeIcon = preferences.darkMode ? IconSun : IconMoon;
   const themeModeLabel = preferences.darkMode ? copy.lightMode : copy.darkMode;
 
   return (
@@ -72,7 +72,7 @@ export function LoginAppearanceControls({
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" aria-label={copy.position} title={copy.position}>
-            <PanelsTopLeft />
+            <IconLayoutNavbar />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-40">
@@ -98,7 +98,7 @@ export function LoginAppearanceControls({
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" aria-label={copy.language} title={copy.language}>
-            <Languages />
+            <IconLanguage />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-40">
@@ -123,7 +123,7 @@ export function LoginAppearanceControls({
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" aria-label={copy.theme} title={copy.theme}>
-            <Palette />
+            <IconPalette />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-40">

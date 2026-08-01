@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Blocks, Eye, EyeOff } from "lucide-react";
+import { IconBlocks, IconEye, IconEyeOff } from "@tabler/icons-react";
 import * as z from "zod";
 import { LoginAppearanceControls } from "@/components/auth/LoginAppearanceControls";
 import { Button } from "@/components/ui/button";
@@ -219,7 +219,7 @@ export function LoginPage() {
       <header className="absolute inset-x-0 top-0 flex items-start justify-between gap-4 p-4 sm:p-6">
         <div className="flex items-center gap-3">
           <div className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-sm">
-            <Blocks aria-hidden="true" />
+            <IconBlocks aria-hidden="true" />
           </div>
           <span className="sr-only sm:not-sr-only sm:text-base sm:font-semibold">
             {copy.brand}
@@ -297,7 +297,7 @@ export function LoginPage() {
                               title={showPassword ? copy.hidePassword : copy.showPassword}
                               onClick={() => setShowPassword((isVisible) => !isVisible)}
                             >
-                              {showPassword ? <EyeOff /> : <Eye />}
+                              {showPassword ? <IconEyeOff /> : <IconEye />}
                             </InputGroupButton>
                           </InputGroupAddon>
                         </InputGroup>

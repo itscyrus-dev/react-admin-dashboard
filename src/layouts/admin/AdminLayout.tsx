@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { AppHeader } from "@/layouts/admin/AppHeader";
 import { AppSidebar } from "@/layouts/admin/AppSidebar";
@@ -9,6 +9,7 @@ import {
   type NavigationGroup,
   type RouteMeta,
 } from "@/config/navigation";
+import { AnimatePresence, motion } from "motion/react";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { useAuthStore } from "@/store/auth";
 
@@ -70,14 +71,7 @@ export function AdminLayout() {
   };
 
   return (
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "11.5rem",
-          "--sidebar-width-icon": "3rem",
-        } as CSSProperties
-      }
-    >
+    <SidebarProvider>
       <AppSidebar groups={visibleGroups} isLoading={isNavigationLoading} />
       <SidebarInset className="h-[100dvh] min-w-0 overflow-hidden bg-page">
         <AppHeader
@@ -88,9 +82,18 @@ export function AdminLayout() {
         />
         <RouteTabs availableRoutes={availableRoutes} />
         <main className="min-h-0 flex-1 overflow-y-auto">
-          <div className="mx-auto w-full max-w-[1600px] p-3 lg:p-4">
-            <Outlet />
-          </div>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={location.pathname}
+              className="mx-auto w-full max-w-[1600px] p-3 lg:p-4"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              <Outlet />
+            </motion.div>
+          </AnimatePresence>
         </main>
       </SidebarInset>
     </SidebarProvider>
