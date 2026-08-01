@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { AppHeader } from "@/layouts/admin/AppHeader";
 import { AppSidebar } from "@/layouts/admin/AppSidebar";
@@ -6,6 +6,7 @@ import { RouteTabs } from "@/layouts/admin/RouteTabs";
 import {
   getRouteMeta,
   navigationGroups,
+  SIDEBAR_MINI_WIDTH,
   type NavigationGroup,
   type RouteMeta,
 } from "@/config/navigation";
@@ -21,6 +22,7 @@ export function AdminLayout() {
   const navigate = useNavigate();
   const [visibleGroups, setVisibleGroups] = useState<NavigationGroup[]>([]);
   const [isNavigationLoading, setIsNavigationLoading] = useState(true);
+  const [isMini, setIsMini] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -71,8 +73,19 @@ export function AdminLayout() {
   };
 
   return (
-    <SidebarProvider>
-      <AppSidebar groups={visibleGroups} isLoading={isNavigationLoading} />
+    <SidebarProvider
+      style={
+        isMini
+          ? ({ "--sidebar-width": SIDEBAR_MINI_WIDTH } as CSSProperties)
+          : undefined
+      }
+    >
+      <AppSidebar
+        groups={visibleGroups}
+        isLoading={isNavigationLoading}
+        isMini={isMini}
+        onMiniChange={setIsMini}
+      />
       <SidebarInset className="h-[100dvh] min-w-0 overflow-hidden bg-page">
         <AppHeader
           currentRoute={currentRoute}

@@ -15,6 +15,8 @@ import {
 
 export const SHELL_FONT_SIZE = "text-sm";
 
+export const SIDEBAR_MINI_WIDTH = "50px";
+
 export interface RouteMeta {
   path: string;
   title: string;

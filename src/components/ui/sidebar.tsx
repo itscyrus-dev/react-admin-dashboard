@@ -1,5 +1,5 @@
 import { Slot } from "@radix-ui/react-slot";
-import { IconLayoutSidebarLeftExpand } from "@tabler/icons-react";
+import { IconLayoutSidebarLeftExpand, IconLayoutSidebarRightExpand } from "@tabler/icons-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
@@ -279,7 +279,7 @@ const SidebarTrigger = React.forwardRef<
   React.ElementRef<typeof Button>,
   React.ComponentProps<typeof Button>
 >(({ className, onClick, ...props }, ref) => {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, state } = useSidebar();
 
   return (
     <Button
@@ -294,7 +294,11 @@ const SidebarTrigger = React.forwardRef<
       }}
       {...props}
     >
-      <IconLayoutSidebarLeftExpand />
+      {state === "collapsed" ? (
+        <IconLayoutSidebarLeftExpand />
+      ) : (
+        <IconLayoutSidebarRightExpand />
+      )}
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
