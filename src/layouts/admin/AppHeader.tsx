@@ -97,7 +97,7 @@ export function AppHeader({
   const initials = user?.username?.slice(0, 2).toUpperCase() ?? "AD";
 
   return (
-    <header className="sticky top-0 z-20 flex h-11 shrink-0 items-center gap-2 border-b bg-header px-3 text-header-foreground">
+    <header className="sticky top-0 z-20 flex h-11 shrink-0 items-center gap-2 border-b bg-header px-[18px] text-header-foreground">
       <SidebarTrigger className="size-8" />
       <Separator orientation="vertical" className="h-4" />
 

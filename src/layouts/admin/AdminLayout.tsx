@@ -98,7 +98,7 @@ export function AdminLayout() {
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={location.pathname}
-              className="mx-auto w-full max-w-[1600px] p-3 lg:p-4"
+              className="w-full p-[18px]"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
