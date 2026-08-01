@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-size-base: 16px;
+    --menu-font-size: calc(var(--font-size-base) * 0.875);
+    --background: 0 0% 100%;
+    --background-deep: 216 20.11% 95.47%;
+    --foreground: 210 6% 21%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 212 100% 45%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
+    --destructive: 359.33 100% 65.1%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 144 57% 58%;
+    --warning: 42 84% 61%;
+    --info: 212 100% 45%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.88% 90%;
+    --input-background: 0 0% 100%;
+    --input-placeholder: 217 10.6% 65%;
+    --ring: 212 100% 45%;
+    --chart-1: 201 94% 52%;
+    --chart-2: 173 80% 40%;
+    --chart-3: 258 64% 68%;
+    --chart-4: 188 70% 53%;
+    --chart-5: 36 92% 58%;
+    --radius: 0.5rem;
+    --header: 0 0% 100%;
+    --header-foreground: 210 6% 21%;
+    --overlay: 0 0% 0% / 45%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 210 6% 21%;
+    --sidebar-primary: 212 100% 45%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 212 100% 45% / 10%;
+    --sidebar-accent-foreground: var(--primary);
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 212 100% 45%;
+    --login-glow: 212 100% 45%;
+  }
+
+  .dark {
+    --background: 222.34 10.43% 12.27%;
+    --background-deep: 220 13.06% 9%;
+    --foreground: 0 0% 95%;
+    --card: 222.34 10.43% 12.27%;
+    --card-foreground: 210 40% 98%;
+    --popover: 0 0% 14.2%;
+    --popover-foreground: 210 40% 98%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 5% 17%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 216 5% 19%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 359.21 68.47% 56.47%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 22%;
+    --input: 0 0% 100% / 10%;
+    --input-background: 0 0% 100% / 5%;
+    --input-placeholder: 218 11% 65%;
+    --ring: 212 100% 55%;
+    --chart-1: 199 89% 62%;
+    --chart-2: 173 58% 49%;
+    --chart-3: 258 72% 73%;
+    --chart-4: 188 65% 58%;
+    --chart-5: 36 88% 64%;
+    --header: 222.34 10.43% 12.27%;
+    --header-foreground: 0 0% 95%;
+    --overlay: 0 0% 0% / 40%;
+    --sidebar-background: 222.34 10.43% 12.27%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 212 100% 45%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 212 100% 55% / 14%;
+    --sidebar-accent-foreground: var(--primary);
+    --sidebar-border: 240 3.7% 22%;
+    --sidebar-ring: 212 100% 55%;
+  }
+
+  :root[data-accent="blue"] {
+    --primary: 212 100% 45%;
+    --primary-foreground: 0 0% 98%;
+    --ring: 212 100% 45%;
+    --sidebar-primary: 212 100% 45%;
+    --sidebar-accent: 212 100% 45% / 10%;
+    --sidebar-ring: 212 100% 45%;
+    --login-glow: 212 100% 45%;
+  }
+
+  :root[data-accent="violet"] {
+    --primary: 252 74% 56%;
+    --primary-foreground: 0 0% 100%;
+    --ring: 252 74% 56%;
+    --sidebar-primary: 252 74% 56%;
+    --sidebar-accent: 252 74% 56% / 10%;
+    --sidebar-ring: 252 74% 56%;
+    --login-glow: 252 74% 56%;
+  }
+
+  :root[data-accent="teal"] {
+    --primary: 173 80% 32%;
+    --primary-foreground: 0 0% 100%;
+    --ring: 173 80% 32%;
+    --sidebar-primary: 173 80% 32%;
+    --sidebar-accent: 173 80% 32% / 10%;
+    --sidebar-ring: 173 80% 32%;
+    --login-glow: 173 80% 32%;
+  }
+
+  :root[data-accent="orange"] {
+    --primary: 18 89% 40%;
+    --primary-foreground: 0 0% 100%;
+    --ring: 18 89% 40%;
+    --sidebar-primary: 18 89% 40%;
+    --sidebar-accent: 18 89% 40% / 10%;
+    --sidebar-ring: 18 89% 40%;
+    --login-glow: 18 89% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply min-h-[100dvh] bg-background text-foreground antialiased;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji";
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+  }
+
+  :focus-visible {
+    scroll-margin-block: 5rem;
+  }
+}
+
+@layer utilities {
+  .login-page-background {
+    background-image:
+      radial-gradient(circle at 50% 0%, hsl(var(--login-glow) / 0.1), transparent 42%),
+      radial-gradient(circle at 0% 100%, hsl(var(--login-glow) / 0.06), transparent 34%);
+  }
+
+  .dark .login-page-background {
+    background-image:
+      radial-gradient(circle at 50% 0%, hsl(var(--login-glow) / 0.12), transparent 42%),
+      radial-gradient(circle at 0% 100%, hsl(var(--login-glow) / 0.07), transparent 34%);
+  }
+
+  .admin-card-shadow {
+    box-shadow: 0 1px 2px hsl(var(--foreground) / 0.035);
+  }
+}
