@@ -2,8 +2,22 @@
   "name": "admin-dashboard",
   "private": true,
   "version": "0.1.0",
+  "description": "A Vben-inspired React admin dashboard built with TypeScript, Vite, Tailwind CSS, and shadcn/ui.",
+  "license": "MIT",
+  "keywords": [
+    "admin-dashboard",
+    "react",
+    "shadcn-ui",
+    "tailwindcss",
+    "typescript",
+    "vite"
+  ],
   "type": "module",
   "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
